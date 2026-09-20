@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浪浪光點｜流浪動物救援與絕育計畫</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/gemini.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">浪浪光點</a>
+      
+      <!-- 漢堡選單按鈕 (手機版專用) -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger"></span>
+      </button>
+
+      <!-- 導覽連結 -->
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="active">首頁</a>
+        <a href="about.html">關於我們</a>
+        <a href="donate.html">支持浪浪</a>
+        <a href="contact.html">聯絡我們</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero 區塊 (3張滾動 Banner 輪播) -->
+  <section class="hero-section">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('images/pexels-samson-katt-5257628.jpg');"></div>
+      <div class="slide" style="background-image: url('images/pexels-ian-panelo-16278274.jpg');"></div>
+      <div class="slide" style="background-image: url('images/pexels-valentin-cvetanoski-2147958923-34071784.jpg');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
+      <p id="hero-kicker" class="kicker"></p>
+      <h1 id="hero-title"></h1>
+      <p id="hero-subtitle" class="subtitle"></p>
+      <a href="donate.html" id="hero-cta" class="btn btn-primary"></a>
+    </div>
+  </section>
+
+  <!-- 特色卡片區塊 -->
+  <section class="features-section">
+    <div class="container">
+      <h2 id="features-main-title" class="section-title"></h2>
+      <div id="features-grid" class="features-grid reveal"></div>
+    </div>
+  </section>
+
+  <!-- 救援成果數據區塊 (動態跑數字) -->
+  <section class="stats-section">
+    <div class="container">
+      <h2 id="stats-main-title" class="section-title"></h2>
+      <div id="stats-grid" class="stats-grid reveal"></div>
+    </div>
+  </section>
+
+  <!-- 財務透明 / 勸募聲明區塊 -->
+  <section class="transparency-section">
+    <div class="container">
+      <div class="transparency-card reveal">
+        <div class="transparency-badges" id="transparency-badges"></div>
+        <h2 id="transparency-title"></h2>
+        <p id="transparency-description"></p>
+        <div class="transparency-action">
+          <a href="donate.html" class="btn btn-secondary">
+            查看更多捐款與抵稅說明 <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ 區塊 -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 id="faq-main-title" class="section-title"></h2>
+      <div id="faq-list" class="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- 聯絡我們區塊 -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-content reveal">
+        <h2 id="contact-title"></h2>
+        <p id="contact-description"></p>
+        <a href="contact.html" class="btn btn-primary">
+          聯繫我們 <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer_number">立案字號 台內社字第1020095526號 / 勸募字號 衛部救字第1141365188號、衛部救字第1141365189號  </p>
+      <p id="footer-text"></p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聯絡我們｜浪浪光點</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <!-- 引入 Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="icon" href="images/gemini.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">浪浪光點</a>
+      
+      <!-- 漢堡選單按鈕 (手機版專用) -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger"></span>
+      </button>
+
+      <!-- 導覽連結 -->
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">首頁</a>
+        <a href="about.html">關於我們</a>
+        <a href="donate.html">支持浪浪</a>
+        <a href="contact.html" class="active">聯絡我們</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 沿用關於我們的 Banner 區塊風格 -->
+    <section class="about-hero-section contact_banner">
+      <div class="about-hero-overlay"></div>
+      <div class="container about-hero-container">
+        <h2 class="about-hero-title">聯絡我們</h2>
+        <p class="about-hero-subtitle">CONTACT US</p>
+      </div>
+    </section>
+
+    <!-- 聯絡我們主要內容區塊 -->
+    <section class="contact-page-section">
+      <div class="container">
+        <div class="contact-page-grid">
+          
+          <!-- 左側：官方聯絡資訊與管道 -->
+          <div class="contact-page-info reveal">
+            <h2 class="contact-page-title">與我們取得聯繫</h2>
+            <p class="contact-page-desc">
+              如果您有任何關於流浪動物救援諮詢、領養申請、捐款收據開立或企業合作等問題，歡迎透過以下方式聯繫我們，我們將盡快回覆您。
+            </p>
+
+            <div class="contact-page-details">
+              <div class="contact-page-item">
+                <div class="contact-page-icon">
+                  <span class="material-symbols-outlined">location_on</span>
+                </div>
+                <div class="contact-page-text">
+                  <h3>服務據點</h3>
+                  <p>新北市板橋區文化路二段 123 號</p>
+                </div>
+              </div>
+
+              <div class="contact-page-item">
+                <div class="contact-page-icon">
+                  <span class="material-symbols-outlined">mail</span>
+                </div>
+                <div class="contact-page-text">
+                  <h3>官方 Email</h3>
+                  <p>service@straylight.org.tw</p>
+                </div>
+              </div>
+
+              <div class="contact-page-item">
+                <div class="contact-page-icon">
+                  <span class="material-symbols-outlined">call</span>
+                </div>
+                <div class="contact-page-text">
+                  <h3>服務專線</h3>
+                  <p>(02) 2345-6789</p>
+                </div>
+              </div>
+
+              <div class="contact-page-item">
+                <div class="contact-page-icon">
+                  <span class="material-symbols-outlined">schedule</span>
+                </div>
+                <div class="contact-page-text">
+                  <h3>服務時間</h3>
+                  <p>週一至週五 09:30 - 18:30（例假日與國定假日公休）</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右側：線上諮詢表單 -->
+          <div class="contact-page-form-card reveal">
+            <h3 class="contact-page-form-title">線上諮詢表單</h3>
+            <form class="contact-page-form">
+              <div class="contact-page-field">
+                <label for="contact-name">您的姓名 <span class="contact-page-required">*</span></label>
+                <input type="text" id="contact-name" name="name" placeholder="請輸入您的姓名" required>
+              </div>
+
+              <div class="contact-page-field">
+                <label for="contact-email">電子信箱 <span class="contact-page-required">*</span></label>
+                <input type="email" id="contact-email" name="email" placeholder="example@email.com" required>
+              </div>
+
+              <div class="contact-page-field">
+                <label for="contact-phone">連絡電話</label>
+                <input type="tel" id="contact-phone" name="phone" placeholder="0912-345-678">
+              </div>
+
+              <div class="contact-page-field">
+                <label for="contact-subject">諮詢主題 <span class="contact-page-required">*</span></label>
+                <select id="contact-subject" name="subject" required>
+                  <option value="" disabled selected>請選擇諮詢主題</option>
+                  <option value="donate">捐款與收據諮詢</option>
+                  <option value="adopt">浪浪領養與媒合</option>
+                  <option value="rescue">通報救援與 TNR</option>
+                  <option value="cooperation">企業合作與宣導</option>
+                  <option value="other">其他問題</option>
+                </select>
+              </div>
+
+              <div class="contact-page-field">
+                <label for="contact-message">諮詢內容 <span class="contact-page-required">*</span></label>
+                <textarea id="contact-message" name="message" rows="5" placeholder="請詳細說明您的需求或問題..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary contact-page-submit-btn">
+                送出訊息 <span class="btn-arrow">→</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer_number">立案字號 台內社字第1020095526號 / 勸募字號 衛部救字第1141365188號、衛部救字第1141365188號</p>
+      <p id="footer-text">© 2026 浪浪光點. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

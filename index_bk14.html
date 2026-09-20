@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浪浪微光｜流浪動物救援與絕育計畫</title>
+  <style>
+    /* ==========================================================================
+       1. 全局變數與基礎設定 (Global Variables & Base Styles)
+       ========================================================================== */
+    :root {
+      --primary-color: #e67e22;     /* 主要品牌色：暖橘色，營造溫暖與希望感 */
+      --primary-hover: #d35400;     /* 滑鼠懸停時的加深橘色 */
+      --bg-light: #fdfbf7;          /* 頁面背景色：米白色，增加親和力與安心感 */
+      --card-bg: #ffffff;           /* 卡片背景色 */
+      --text-main: #333333;         /* 主要文字顏色 */
+      --text-muted: #666666;        /* 次要/說明文字顏色 */
+      --border-color: #eef0f2;      /* 邊框分割線顏色 */
+      --nav-bg: #ffffff;            /* 導覽列背景色 */
+      --max-width: 1100px;          /* 內容最大寬度限制 */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* 容器：集中控制頁面邊距與最大寬度 */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==========================================================================
+       2. 頁首導覽列 (Header & Navigation)
+       ========================================================================== */
+    header {
+      background-color: var(--nav-bg);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       3. 通用元件 (Buttons & Section Headers)
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       4. Hero 主視覺區塊 (Hero Section)
+       ========================================================================== */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-kicker {
+      color: var(--primary-color);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 32px auto;
+    }
+
+    /* ==========================================================================
+       5. 特色區塊 (Features Section)
+       ========================================================================== */
+    .features-section {
+      padding: 80px 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .feature-card-body {
+      padding: 24px;
+    }
+
+    .feature-card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .feature-card-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       6. 常見問題區塊 - 手風琴折疊效果 (FAQ Accordion Section)
+       ========================================================================== */
+    .faq-section {
+      padding: 80px 0;
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      background-color: #ffffff;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 展開狀態下的外框邊框高亮 */
+    .faq-item.active {
+      border-color: var(--primary-color);
+    }
+
+    /* FAQ 按鈕 */
+    .faq-button {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: color 0.2s;
+    }
+
+    .faq-button:hover {
+      color: var(--primary-color);
+    }
+
+    /* 展開/收合箭頭圖示 (純 CSS 繪製) */
+    .faq-icon {
+      width: 12px;
+      height: 12px;
+      border-right: 2px solid var(--text-muted);
+      border-bottom: 2px solid var(--text-muted);
+      transform: rotate(45deg);
+      transition: transform 0.3s ease, border-color 0.2s;
+      flex-shrink: 0;
+    }
+
+    /* 展開時將箭頭旋轉向上 */
+    .faq-item.active .faq-icon {
+      transform: rotate(-135deg);
+      border-color: var(--primary-color);
+    }
+
+    /* 折疊內容區塊（利用 max-height 做高度過渡動畫） */
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background-color: #fcfbf9;
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px 24px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       7. 聯絡引導與頁尾 (Contact & Footer Section)
+       ========================================================================== */
+    .contact-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .contact-box {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 48px 24px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .contact-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .contact-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ==========================================================================
+       8. 響應式網頁設計 (RWD Media Queries)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* 行動裝置暫時隱藏選單 */
+      }
+      .hero-title {
+        font-size: 1.75rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 頁首導覽列區塊 -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">浪浪微光</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="about.html">關於我們</a></li>
+          <li><a href="donate.html">支持浪浪</a></li>
+          <li><a href="stories.html">救援故事</a></li>
+          <li><a href="contact.html">聯絡我們</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. Hero 主視覺區塊（由 JSON 動態填入內容） -->
+  <section class="hero">
+    <div class="container">
+      <div id="hero-kicker" class="hero-kicker"></div>
+      <h1 id="hero-title" class="hero-title"></h1>
+      <p id="hero-subtitle" class="hero-subtitle"></p>
+      <a href="donate.html" id="hero-cta" class="btn"></a>
+    </div>
+  </section>
+
+  <!-- 3. 特色區塊（由 JSON 動態填入內容） -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="features-title" class="section-title"></h2>
+      </div>
+      <div id="features-grid" class="features-grid"></div>
+    </div>
+  </section>
+
+  <!-- 4. 常見問題區塊 - 折疊式 FAQ（由 JSON 動態填入內容） -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="faq-title" class="section-title"></h2>
+      </div>
+      <div id="faq-list" class="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- 5. 聯絡區塊（由 JSON 動態填入內容） -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-box">
+        <h2 id="contact-title" class="contact-title"></h2>
+        <p id="contact-desc" class="contact-desc"></p>
+        <a href="contact.html" class="btn">聯絡諮詢</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 頁尾區塊（由 JSON 動態填入內容） -->
+  <footer>
+    <div class="container">
+      <p id="footer-text"></p>
+    </div>
+  </footer>
+
+  <!-- JavaScript：動態讀取 JSON 資料與互動控制 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      // 讀取 data/website-content.json 資料檔
+      fetch('data/website-content.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('無法讀取內容資料');
+          }
+          return response.json();
+        })
+        .then(data => {
+
+          // --- A. 渲染 Hero 主視覺區塊 ---
+          if (data.hero) {
+            document.getElementById('hero-kicker').textContent = data.hero.kicker || '';
+            document.getElementById('hero-title').textContent = data.hero.title || '';
+            document.getElementById('hero-subtitle').textContent = data.hero.subtitle || '';
+            document.getElementById('hero-cta').textContent = data.hero.cta || '';
+          }
+
+          // --- B. 渲染特色卡片區塊 ---
+          if (data.featuresTitle) {
+            document.getElementById('features-title').textContent = data.featuresTitle;
+          }
+
+          if (data.features && Array.isArray(data.features)) {
+            const featuresGrid = document.getElementById('features-grid');
+            featuresGrid.innerHTML = data.features.map(item => `
+              <div class="feature-card">
+                <img src="${item.imageUrl}" alt="${item.imageAlt}">
+                <div class="feature-card-body">
+                  <h3 class="feature-card-title">${item.title}</h3>
+                  <p class="feature-card-desc">${item.description}</p>
+                </div>
+              </div>
+            `).join('');
+          }
+
+          // --- C. 渲染與初始化 FAQ 折疊區塊 ---
+          if (data.faqTitle) {
+            document.getElementById('faq-title').textContent = data.faqTitle;
+          }
+
+          if (data.faq && Array.isArray(data.faq)) {
+            const faqList = document.getElementById('faq-list');
+            
+            // 產生手風琴 HTML 結構
+            faqList.innerHTML = data.faq.map((item, index) => `
+              <div class="faq-item">
+                <button type="button" class="faq-button" aria-expanded="false" aria-controls="faq-ans-${index}">
+                  <span>${item.question}</span>
+                  <span class="faq-icon"></span>
+                </button>
+                <div id="faq-ans-${index}" class="faq-content">
+                  <div class="faq-answer">${item.answer}</div>
+                </div>
+              </div>
+            `).join('');
+
+            // 綁定 FAQ 點擊展開/收合事件
+            const faqButtons = faqList.querySelectorAll('.faq-button');
+            faqButtons.forEach(button => {
+              button.addEventListener('click', function () {
+                const faqItem = this.parentElement;
+                const content = this.nextElementSibling;
+                const isOpen = faqItem.classList.contains('active');
+
+                // 自動關閉其他已展開的項目（保持單一展開狀態）
+                document.querySelectorAll('.faq-item').forEach(item => {
+                  item.classList.remove('active');
+                  item.querySelector('.faq-button').setAttribute('aria-expanded', 'false');
+                  item.querySelector('.faq-content').style.maxHeight = null;
+                });
+
+                // 切換目前點擊項目的展開狀態
+                if (!isOpen) {
+                  faqItem.classList.add('active');
+                  this.setAttribute('aria-expanded', 'true');
+                  // 設定動態計算的高度以產生平滑展開動畫
+                  content.style.maxHeight = content.scrollHeight + "px";
+                }
+              });
+            });
+          }
+
+          // --- D. 渲染聯絡區塊 ---
+          if (data.contact) {
+            document.getElementById('contact-title').textContent = data.contact.title || '';
+            document.getElementById('contact-desc').textContent = data.contact.description || '';
+          }
+
+          // --- E. 渲染頁尾 ---
+          if (data.footer) {
+            document.getElementById('footer-text').textContent = data.footer;
+          }
+        })
+        .catch(error => {
+          console.error('資料載入失敗：', error);
+        });
+    });
+  </script>
+</body>
+</html>

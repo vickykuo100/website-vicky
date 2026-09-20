@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>支持浪浪｜浪浪光點</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/gemini.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">浪浪光點</a>
+      
+      <!-- 漢堡選單按鈕 (手機版專用) -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger"></span>
+      </button>
+
+      <!-- 導覽連結 -->
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">首頁</a>
+        <a href="about.html">關於我們</a>
+        <a href="donate.html" class="active">支持浪浪</a>
+        <a href="contact.html">聯絡我們</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Banner 區塊 (沿用關於我們風格) -->
+    <section class="about-hero-section donate_banner">
+      <div class="about-hero-overlay"></div>
+      <div class="container about-hero-container">
+        <h2 id="donate-hero-title" class="about-hero-title"></h2>
+        <p id="donate-hero-subtitle" class="about-hero-subtitle"></p>
+      </div>
+    </section>
+
+    <!-- 捐款主要區塊 -->
+    <section class="donate-page-section">
+      <div class="container">
+        
+        <!-- 捐款類型切換 (單筆 / 定期定額) -->
+        <div class="donate-page-type-selector reveal">
+          <button type="button" class="donate-page-type-btn active" data-type="single">單筆捐款</button>
+          <button type="button" class="donate-page-type-btn" data-type="monthly">定期定額</button>
+        </div>
+
+        <!-- 方案卡片列表 -->
+        <div id="donate-plans-grid" class="donate-page-plans-grid reveal"></div>
+
+        <!-- 捐款流程與付款方式說明 -->
+        <div class="donate-page-info-grid">
+          
+          <!-- 支付管道 -->
+          <div class="donate-page-card reveal">
+            <h3 id="donate-methods-title" class="donate-page-card-title"></h3>
+            <div id="donate-methods-list" class="donate-page-methods-list"></div>
+          </div>
+
+          <!-- 抵稅說明與注意事項 -->
+          <div class="donate-page-card reveal">
+            <h3 id="donate-tax-title" class="donate-page-card-title"></h3>
+            <div id="donate-tax-content" class="donate-page-tax-content"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer_number">立案字號 台內社字第1020095526號 / 勸募字號 衛部救字第1141365188號、衛部救字第1141365188號</p>
+      <p id="footer-text"></p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
